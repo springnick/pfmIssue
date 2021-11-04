@@ -1,0 +1,22 @@
+<aspectj>
+
+    <aspects>
+        <!-- declare two existing aspects to the weaver -->
+        <aspect name="com.nick.demo.aspect.MyAspect"/>
+    </aspects>
+
+    <weaver options="-verbose">
+        <!-- Weave types that are within the com.nick.demo.*
+             packages.
+           NOTE: com.nick.demo.aspect.MyAspect  需要包含在被weave 的包里，
+           否则会报 no such method aspectof 异常
+              -->
+        <include within="com.nick.demo.api.*"/>
+        <include within="com.nick.demo.model.*"/>
+        <include within="com.nick.demo.service.*"/>
+        <include within="com.nick.demo.service2.*"/>
+        <include within="com.nick.demo.aspect.*"/>
+
+    </weaver>
+
+</aspectj>
